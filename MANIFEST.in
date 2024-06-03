@@ -1,0 +1,5 @@
+prune tests
+include pyproject.toml
+include README.md
+include src/*/py.typed
+include src/lucide/lucide.zip
