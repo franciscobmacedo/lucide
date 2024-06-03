@@ -83,3 +83,48 @@ jobs:
         with:
           name: html-report
           path: htmlcov
+  # https://github.com/marketplace/actions/alls-green
+  check:  # This job does nothing and is only used for the branch protection
+
+    if: always()
+
+    outputs:
+      result: ${{ steps.all-green.outputs.result }}
+
+    needs:
+      - tests
+      - coverage
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Decide whether the needed jobs succeeded or failed
+        uses: re-actors/alls-green@release/v1
+        id: all-green
+        with:
+          jobs: ${{ toJSON(needs) }}
+  release:
+    needs: [check]
+    if: needs.check.outputs.result == 'success'
+    runs-on: ubuntu-latest
+    environment: release
+
+    permissions:
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: set up python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: install
+        run: pip install -U build
+
+      - name: build
+        run: python -m build
+
+      - name: Upload package to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
