@@ -1,23 +1,36 @@
 # lucide
 
-.. image:: https://img.shields.io/github/actions/workflow/status/franciscobmacedo/lucide/main.yml.svg?branch=main&style=for-the-badge
-   :target: https://github.com/franciscobmacedo/lucide/actions?workflow=CI
+<a href="https://github.com/franciscobmacedo/lucide/actions?workflow=CI">
+    <img
+        src="https://img.shields.io/github/actions/workflow/status/franciscobmacedo/lucide/main.yml.svg?branch=main&style=for-the-badge"
+        alt="image"
+        style="max-width: 100%;"
+    >
+</a>
+<a href="https://pypi.org/project/lucide/">
+    <img
+        src="https://img.shields.io/pypi/v/lucide.svg?style=for-the-badge"
+        alt="image"
+        style="max-width: 100%;"
+    >
+</a>
+<a href="https://github.com/psf/black">
+    <img
+        src="https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge"
+        alt="image"
+        style="max-width: 100%;"
+    >
+</a>
+<a href="https://github.com/pre-commit/pre-commit">
+    <img
+        src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=for-the-badge"
+        alt="image"
+        style="max-width: 100%;"
+    >
+</a>
 
-.. image:: https://img.shields.io/badge/Coverage-100%25-success?style=for-the-badge
-   :target: https://github.com/franciscobmacedo/lucide/actions?workflow=CI
-
-.. image:: https://img.shields.io/pypi/v/lucide.svg?style=for-the-badge
-   :target: https://pypi.org/project/lucide/
-
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge
-   :target: https://github.com/psf/black
-
-.. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=for-the-badge
-   :target: https://github.com/pre-commit/pre-commit
-   :alt: pre-commit
 
 Use [lucide icons](https://lucide.dev/) in your Django and Jinja templates.
-
 
 ## Requirements
 
@@ -32,26 +45,25 @@ Follow the appropriate guide below.
 
 ### Django templates
 
+1.  Install with `python -m pip install lucide[django]`.
 
-1. Install with ``python -m pip install lucide[django]``.
+2.  Add to your `INSTALLED_APPS`:
 
-2. Add to your ``INSTALLED_APPS``:
-
-    ```py
+    ```python
     INSTALLED_APPS = [
         ...,
         "lucide",
         ...,
     ]
     ```
-Now your templates can load the template library with:
 
-```django
+3. Now your templates can load the template library with:
 
-    {% load lucide %}
-```
+    ```django
+        {% load lucide %}
+    ```
 
-Alternatively, make the library available in all templates by adding it to `the builtins option <https://docs.djangoproject.com/en/stable/topics/templates/#django.template.backends.django.DjangoTemplates>`__:
+Alternatively, make the library available in all templates by adding it to [the builtins option](https://docs.djangoproject.com/en/stable/topics/templates/#django.template.backends.django.DjangoTemplates>):
 
 ```python
 TEMPLATES = [
@@ -72,23 +84,24 @@ TEMPLATES = [
 
 The library provides one tag (`lucide`) to render SVG icons which can take these arguments:
 
-* `name`, positional: the name of the icon to use. You can see the icon names on the [lucide grid](https://lucide.dev/icons/).
+- `name`, positional: the name of the icon to use. You can see the icon names on the [lucide grid](https://lucide.dev/icons/).
 
-* `size`, keyword: an integer that will be used for the width and height attributes of the output `<svg>` tag.
+- `size`, keyword: an integer that will be used for the width and height attributes of the output `<svg>` tag.
   Defaults to the icons’ designed sizes, `24`.
   It can also be `None`, in which case no width or height attributes will be output.
 
-* Any number of keyword arguments.
+- Any number of keyword arguments.
   These will be added as attributes in the output HTML.
   Underscores in attribute names will be replaced with dashes, allowing you to define e.g. `data-` attributes.
 
-  Most attributes will be added to the `<svg>` tag containing the icon, but these attributes will be attached to the inner `<path>` tags instead:
 
-  * `stroke-linecap`
-  * `stroke-linejoin`
-  * `vector-effect`
+Most attributes will be added to the `<svg>` tag containing the icon, but these attributes will be attached to the inner `<path>` tags instead:
 
-Note: unlike the SVG code you can copy from [lucide grid](https://lucide.dev/icons/), there is no default `class`.
+  - `stroke-linecap`
+  - `stroke-linejoin`
+  - `vector-effect`
+
+> Note: unlike the SVG code you can copy from [lucide grid](https://lucide.dev/icons/), there is no default `class`.
 
 #### Examples
 
@@ -110,15 +123,14 @@ That icon again, but with the paths changed to a narrower stroke width, and a "d
     {% lucide "a-arrow-down" stroke_width=1 data_controller="language" %}
 ```
 
-###Jinja templates
+### Jinja templates
 
-1. Install with ``python -m pip install lucide[jinja]``.
+1. Install with `python -m pip install lucide[jinja]`.
 
-2. Adjust your Jinja ``Environment`` to add the global ``lucide`` function from ``lucide.jinja``.
+2. Adjust your Jinja `Environment` to add the global `lucide` function from `lucide.jinja`.
    For example:
 
    ```python
-
        from lucide.jinja import lucide
        from jinja2 import Environment
 
@@ -128,27 +140,26 @@ That icon again, but with the paths changed to a narrower stroke width, and a "d
            }
        )
     ```
-Now in your templates you can call that function, which will render the corresponding ``<svg>`` icons .
-The functions take these arguments:
+3. Now in your templates you can call that function, which will render the corresponding `<svg>` icons. The function takes these arguments:
 
-* `name`, positional: the name of the icon to use.
+- `name`, positional: the name of the icon to use.
   You can see the icon names on the [lucide grid](https://lucide.dev/icons/)
 
-* `size`, keyword: an integer that will be used for the width and height attributes of the output `<svg>` tag.
+- `size`, keyword: an integer that will be used for the width and height attributes of the output `<svg>` tag.
   Defaults to the icons’ designed sizes, `24`.
   Can be `None`, in which case no width or height attributes will be output.
 
-* Any number of keyword arguments.
+- Any number of keyword arguments.
   These will be added as HTML attributes to the output HTML.
   Underscores in attribute names will be replaced with dashes, allowing you to define e.g. `data-` attributes.
 
-  Most attributes will be added to the `<svg>` tag containing the icon, but these attributes will be attached to the inner `<path>` tags instead:
+Most attributes will be added to the `<svg>` tag containing the icon, but these attributes will be attached to the inner `<path>` tags instead:
 
-  * `stroke-linecap`
-  * `stroke-linejoin`
-  * `vector-effect`
+  - `stroke-linecap`
+  - `stroke-linejoin`
+  - `vector-effect`
 
-Note: unlike the SVG code you can copy from [lucide grid](https://lucide.dev/icons/), there is no default `class`.
+> Note: unlike the SVG code you can copy from [lucide grid](https://lucide.dev/icons/), there is no default `class`.
 
 #### Examples
 
@@ -157,17 +168,16 @@ An "a-arrow-down” icon:
 ```jinja
     {{ lucide("a-arrow-down") }}
 ```
+
 The same icon at 40x40 pixels and a CSS class:
 
 ```jinja
-
     {{ lucide("a-arrow-down", size=40, class="mr-4") }}
 ```
 
 That icon again, but with the paths changed to a narrower stroke width, and a "data-controller" attribute declared:
 
 ```jinja
-
     {{ lucide("a-arrow-down", stroke_width=1, data_controller="language") }}
 ```
 
