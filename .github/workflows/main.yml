@@ -109,7 +109,7 @@ jobs:
           jobs: ${{ toJSON(needs) }}
   release:
     needs: [check]
-    if: needs.check.outputs.result == 'success'
+    if: needs.check.outputs.result == 'success' && startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     environment: release
 
