@@ -1,30 +1,35 @@
 # lucide
+<p align="start">
+  <a href="https://github.com/franciscobmacedo/lucide">
+    <img src="docs/images/logo.png" alt="Lucide - Beautiful & consistent icon toolkit made by the community. Open-source project and a fork of Feather Icons." width="200">
+  </a>
+</p>
 
 <a href="https://github.com/franciscobmacedo/lucide/actions?workflow=CI">
     <img
         src="https://img.shields.io/github/actions/workflow/status/franciscobmacedo/lucide/main.yml.svg?branch=main&style=for-the-badge"
-        alt="image"
+        alt="CI"
         style="max-width: 100%;"
     >
 </a>
 <a href="https://pypi.org/project/lucide/">
     <img
         src="https://img.shields.io/pypi/v/lucide.svg?style=for-the-badge"
-        alt="image"
+        alt="pypi"
         style="max-width: 100%;"
     >
 </a>
 <a href="https://github.com/psf/black">
     <img
         src="https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge"
-        alt="image"
+        alt="black"
         style="max-width: 100%;"
     >
 </a>
 <a href="https://github.com/pre-commit/pre-commit">
     <img
         src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=for-the-badge"
-        alt="image"
+        alt="pre-commit"
         style="max-width: 100%;"
     >
 </a>
