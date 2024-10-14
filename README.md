@@ -1,7 +1,7 @@
 # lucide
 <p align="start">
   <a href="https://github.com/franciscobmacedo/lucide">
-    <img src="docs/images/logo.png" alt="Lucide - Beautiful & consistent icon toolkit made by the community. Open-source project and a fork of Feather Icons." width="200">
+    <img src="https://raw.githubusercontent.com/franciscobmacedo/lucide/refs/heads/main/docs/images/logo.png" alt="Lucide - Beautiful & consistent icon toolkit made by the community. Open-source project and a fork of Feather Icons." width="200">
   </a>
 </p>
 
