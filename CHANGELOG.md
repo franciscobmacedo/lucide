@@ -1,6 +1,10 @@
 
 # Changelog
 
+## 1.1.2 (2024-10-14)
+
+* remove .DS_Store
+*
 ## 1.1.1 (2024-10-14)
 
 * fix logo source in README.md (and consequently on pypi docs)
