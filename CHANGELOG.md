@@ -1,6 +1,10 @@
 
 # Changelog
 
+## 1.1.1 (2024-10-14)
+
+* fix logo source in README.md (and consequently on pypi docs)
+
 ## 1.1.0 (2024-10-14)
 
 * add lucide icons version 0.452.0.
